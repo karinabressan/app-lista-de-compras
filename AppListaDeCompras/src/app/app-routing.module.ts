@@ -3,17 +3,17 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'lists',
-    loadChildren: () => import('./tab1/tab1.module').then(m => m.Tab1PageModule),
+    path: 'shopping-lists',
+    loadChildren: () => import('./shopping-lists/shopping-lists.module').then(m => m.ShoppingListsPageModule),
     pathMatch: 'full'
   },
   {
-    path: 'lists/:listId',
-    loadChildren: () => import('./tab2/tab2.module').then(m => m.Tab2PageModule)
+    path: 'shopping-lists/:listId',
+    loadChildren: () => import('./shopping-list-itens/shopping-list-itens.module').then(m => m.ShoppingListItensPageModule)
   },
   {
     path: '',
-    redirectTo: '/lists',
+    redirectTo: '/shopping-lists',
     pathMatch: 'full'
   }
 ];
