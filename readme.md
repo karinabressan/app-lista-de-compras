@@ -2,12 +2,13 @@ Aplicativo de Lista de Compras
 
 [x] - Criar repositório para o aplicativo
 [ ] - Criar as páginas html
-    [ ] - Página da lista de listas
-        [ ] - Titulo
-        [ ] - Add Botão incluir nova lista
-        [ ] - Add Botão editar lista
-        [ ] - Add Lista de visualização
-        [ ] - Add lista do modo edição
+    [x] - Página da lista de listas
+        [x] - Titulo
+        [x] - Add Botão incluir nova lista
+        [x] - Add Botão editar lista
+        [x] - Add Lista de visualização
+         [x] - icone de navegar
+        [x] - Add lista do modo edição
 
             
     [ ] - Página de uma lista de compras
@@ -28,17 +29,17 @@ Aplicativo de Lista de Compras
         [ ] - Implementar a persistencia das alterações
         [ ] - Implementar comportamento par a ação de excluir
         [ ] - Configurar a navegação para a tela de itens da lista
-
+        [ ] - Criar serviço
 
 ----------
 
 
 Telas:
 
- [ ] Criar tela para Lista de listas
-  -> URL: /
- [ ] Criar tela para itens de uma lista
-  -> URL: /{id}/
+ [x] Criar tela para Lista de listas
+  -> URL: /shopping-lists
+ [x] Criar tela para itens de uma lista
+  -> URL: /shopping-lists/:listId
     -> Rotas com parametro
 
  Componentes:
