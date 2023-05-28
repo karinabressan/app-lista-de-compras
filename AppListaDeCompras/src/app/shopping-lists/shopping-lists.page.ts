@@ -8,11 +8,15 @@ import { ShoppingList } from '../model/shopping-list';
   styleUrls: ['shopping-lists.page.scss']
 })
 export class ShoppingListsPage implements OnInit{
-
   shoppingLists: ShoppingList[] = [];
-  constructor(private shoppingListsService: ShoppingListsService) {}
+  private shoppingListsService: ShoppingListsService;
+
+  constructor(shoppingListsService: ShoppingListsService) {
+    this.shoppingListsService = shoppingListsService;
+  }
   
   ngOnInit(): void {
+
     this.shoppingLists = this.shoppingListsService.getShoppingLists();
   }
 

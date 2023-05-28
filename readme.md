@@ -12,11 +12,12 @@ Aplicativo de Lista de Compras
 
             
     [ ] - Página de uma lista de compras
-        [ ] - Titulo
-        [ ] - Add Botão incluir nova lista
-        [ ] - Add Botão editar lista
-        [ ] - Add Lista de visualização
-        [ ] - Add lista do modo edição
+        [x] - Criar serviço 
+        [x] - Titulo
+        [x] - Add Botão incluir nova lista
+        [x] - Add Botão editar lista
+        [x] - Add Lista de visualização
+        [x] - Add lista do modo edição
             
 [ ] - Implementar comportamentos
     [ ] - Página da lista de listas

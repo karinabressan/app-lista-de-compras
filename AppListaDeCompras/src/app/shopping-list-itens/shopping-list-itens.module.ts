@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { ShoppingListItensPage } from './shopping-list-itens.page';
 
 import { ShoppingListItensRoutingModule } from './shopping-list-itens-routing.module';
+import { ShoppingListItensService } from './shopping-list-itens.service';
+import { ShoppingListsService } from '../shopping-lists/shopping-lists.service';
 
 @NgModule({
   imports: [
@@ -13,6 +15,7 @@ import { ShoppingListItensRoutingModule } from './shopping-list-itens-routing.mo
     FormsModule,
     ShoppingListItensRoutingModule
   ],
-  declarations: [ShoppingListItensPage]
+  declarations: [ShoppingListItensPage],
+  providers: [ShoppingListItensService, ShoppingListsService]
 })
 export class ShoppingListItensPageModule {}

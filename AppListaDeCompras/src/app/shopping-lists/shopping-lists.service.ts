@@ -11,7 +11,8 @@ export class ShoppingListsService {
                 id: 1,
                 title: 'compra 1',
                 itens: [
-                    { id: 1, description: 'doce de leite' }
+                    { id: 1, description: 'doce de leite' },
+
                 ]
             },            
             {
