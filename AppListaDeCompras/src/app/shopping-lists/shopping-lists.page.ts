@@ -38,20 +38,7 @@ export class ShoppingListsPage implements OnInit{
     await this.shoppingListsService.init();
     this.allShoppingLists = await this.shoppingListsService.getAll();
       
-    this.newItemModal = await this.alertController.create(
-      {
-        header: 'Nova lista',
-        cssClass: 'secondary',
-        buttons: ["OK", "Cancel"],
-        inputs: [
-          {
-            name: 'title',
-            type: 'text',
-            placeholder: 'Nome da nova lista'
-          }
-        ]
-      }
-    );  
+    
   }
 
   navigateToListItemsPage(listId:number):void{
@@ -92,13 +79,32 @@ export class ShoppingListsPage implements OnInit{
   }
 
   async add():Promise<void>{
+    this.newItemModal = await this.alertController.create(
+      {
+        header: 'Nova lista',
+        cssClass: 'secondary',
+        buttons: ["OK", "Cancel"],
+        inputs: [
+          {
+            name: 'title',
+            type: 'text',
+            placeholder: 'Nome da nova lista'
+          }
+        ]
+      }
+    );  
     await this.newItemModal.present();
 
     const data = await this.newItemModal.onDidDismiss();
     const nome = data.data.values.title;
 
-    await this.shoppingListsService.add(nome);
-    this.allShoppingLists = await this.shoppingListsService.getAll();
+    if(!data.role){
+      await this.shoppingListsService.add(nome);
+      this.allShoppingLists = await this.shoppingListsService.getAll();
+      if(this.editMode){
+        this.edit()
+      }
+    }
     
     
   }

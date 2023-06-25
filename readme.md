@@ -20,30 +20,31 @@ Aplicativo de Lista de Compras
         [x] - Add lista do modo edição
             
 [ ] - Implementar comportamentos
-      [ ] - Página da lista de listas
+      [x] - Página da lista de listas
          [x] - Configurar a ativação e desativação do modo de edição
-         [-] - criar servico
+         [x] - criar servico
             [x] - Implementar a persistencia das alteraçõe
             [x] - Add 
             [x] - update
             [x] - lista
          [x] - Implementar comportamento para a ação de excluir
          [x] - Implementar ação de criar
-         [ ] - Configurar a navegação para a tela de itens da lista
+         [x] - Configurar a navegação para a tela de itens da lista
 
     [ ] - Página de uma lista de compras
-        [ ] - Criar o dialog de edição
-        [ ] - Criar serviço
-        [ ] - Implementar a persistencia das alterações
-        [ ] - Implementar comportamento par a ação de excluir
-        [ ] - Implementar a ação de criar
-        [ ] - Configurar a navegação para a tela de itens da lista
+        [x] - Configurar a ativação e desativação do modo de edição
+        [x] - fazer o editar funcionar
+        [ ] - fazer o checkbox funcionar
+        [x] - Criar serviço
+        [x] - Implementar a persistencia das alterações
+        [x] - Implementar comportamento par a ação de excluir
+        [x] - Implementar a ação de criar
       
         
 
-[ ] Tarefas para os comportamentos
+[x] Tarefas para os comportamentos
    [x] - Importar libs de storage
-   [ ] - Criar servico para storage
+   [x] - Criar servico para storage
 
 
 ----------

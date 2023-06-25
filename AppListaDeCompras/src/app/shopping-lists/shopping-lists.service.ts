@@ -10,7 +10,7 @@ export class ShoppingListsService {
             id: 1,
             title: 'compra 1',
             itens: [
-                { id: 1, description: 'doce de leite' },
+                { id: 1, description: 'doce de leite', done: false },
 
             ]
         },            
@@ -18,19 +18,19 @@ export class ShoppingListsService {
             id: 2,
             title: 'compra 2',
             itens: [
-                { id: 2, description: 'açúcar' },
-                { id: 3, description: 'azeite' },
+                { id: 2, description: 'açúcar', done: false },
+                { id: 3, description: 'azeite', done: false },
             ]
         },
         {
             id: 3,
             title: 'itens para viagem',
             itens: [
-                { id: 4, description: 'desodorante' },
-                { id: 5, description: 'mala' },
-                { id: 6, description: 'protetor solar' },
-                { id: 7, description: 'power bank' },
-                { id: 8, description: 'toalha' },
+                { id: 4, description: 'desodorante', done: false },
+                { id: 5, description: 'mala', done: false },
+                { id: 6, description: 'protetor solar', done: false },
+                { id: 7, description: 'power bank', done: false },
+                { id: 8, description: 'toalha', done: false },
             ]
         }
     ];
@@ -58,7 +58,8 @@ export class ShoppingListsService {
         const shoppingLists = await this.getAll();
         let id = 1;
         if(shoppingLists){
-            id = shoppingLists.length ? shoppingLists[shoppingLists.length-1].id++ : 1;
+            id = shoppingLists.length ? shoppingLists[shoppingLists.length-1].id : 0;
+            id++;
         }
         const shoppingList: ShoppingList = new ShoppingList(id, title, []);
         shoppingLists.push(shoppingList);
