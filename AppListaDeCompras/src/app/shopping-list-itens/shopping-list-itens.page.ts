@@ -5,6 +5,7 @@ import { ShoppingListItensService } from './shopping-list-itens.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { ShopItem } from '../model/shop-item';
 
 @Component({
   selector: 'app-shopping-list-itens',
@@ -44,6 +45,15 @@ export class ShoppingListItensPage implements OnInit {
 
   private async reload(){
     this.shoppingListItem = await this.shoppingListItemService.getShoppingList(this.listId);
+
+  }
+
+  async checkItem(e:any, itemIndex:number){
+    if(this.shoppingListItem){
+      this.shoppingListItem.itens[itemIndex].done = e.detail.checked;
+      await this.shoppingListItemService.update(this.listId, this.shoppingListItem.itens);
+      this.reload();
+    }
 
   }
 

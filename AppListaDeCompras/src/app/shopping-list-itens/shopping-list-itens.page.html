@@ -11,7 +11,7 @@
   <ng-container *ngIf="!editMode">
     <ion-list lines="inset" *ngFor="let item of shoppingListItem?.itens; index as i">
       <ion-item>
-        <ion-checkbox labelPlacement="end" justify="start">{{item.description}}</ion-checkbox>
+        <ion-checkbox (ionChange)="checkItem($event, i)" [checked]="item.done" labelPlacement="end" justify="start">{{item.description}}</ion-checkbox>
       </ion-item>
     </ion-list>
   </ng-container>

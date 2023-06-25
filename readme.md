@@ -19,7 +19,7 @@ Aplicativo de Lista de Compras
         [x] - Add Lista de visualização
         [x] - Add lista do modo edição
             
-[ ] - Implementar comportamentos
+[x] - Implementar comportamentos
       [x] - Página da lista de listas
          [x] - Configurar a ativação e desativação do modo de edição
          [x] - criar servico
@@ -31,10 +31,10 @@ Aplicativo de Lista de Compras
          [x] - Implementar ação de criar
          [x] - Configurar a navegação para a tela de itens da lista
 
-    [ ] - Página de uma lista de compras
+    [x] - Página de uma lista de compras
         [x] - Configurar a ativação e desativação do modo de edição
         [x] - fazer o editar funcionar
-        [ ] - fazer o checkbox funcionar
+        [x] - fazer o checkbox funcionar
         [x] - Criar serviço
         [x] - Implementar a persistencia das alterações
         [x] - Implementar comportamento par a ação de excluir
@@ -60,16 +60,12 @@ Telas:
 
  Componentes:
 
- [ ] Listagem de itens com navegação
-    [ ] - Botão que navega para uma pagina
- [ ] Listagem de itens que podem ser concluídos
-    [ ] - Check de conclusão
- [ ] Listagem de itens que podem ser editados e excluidos
-    [ ] - Lista com inputs
-    [ ] - Botões de exclusão
- [ ] Dialog de criação
-    [ ] - botão de cancelar
-    [ ] - botão de confirmar
-    [ ] - input de texto
- [ ] Botão flutuante de criação
- [ ] Botão flutuante de edição
+ [x] Listagem de itens com navegação
+    [x] - Botão que navega para uma pagina
+ [x] Listagem de itens que podem ser concluídos
+    [x] - Check de conclusão
+ [x] Listagem de itens que podem ser editados e excluidos
+    [x] - Lista com inputs
+    [x] - Botões de exclusão
+ [x] Botão flutuante de criação
+ [x] Botão flutuante de edição
