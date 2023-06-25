@@ -10,7 +10,7 @@
 <ion-content [fullscreen]="true">
   <!-- listagem de visualizacao-->
   <ng-container *ngIf="!editMode">
-    <ion-list lines="inset" *ngFor="let item of shoppingLists; index as i">
+    <ion-list lines="inset" *ngFor="let item of allShoppingLists; index as i">
       <ion-item>
         <ion-label>{{item.title}}</ion-label>
         <ion-button>

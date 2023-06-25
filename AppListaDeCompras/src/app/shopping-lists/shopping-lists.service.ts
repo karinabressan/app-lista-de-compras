@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
 import { ShoppingList } from "../model/shopping-list";
+import { StorageService } from "../services/storage.service";
 
 @Injectable()
 export class ShoppingListsService {
 
-    private shoppingLists: ShoppingList[] = [
+    private _shoppingLists: ShoppingList[] = [
         {
             id: 1,
             title: 'compra 1',
@@ -34,19 +35,29 @@ export class ShoppingListsService {
         }
     ];
 
-    getAll(): ShoppingList[] {
-        return this.shoppingLists;
+    constructor(private storageService: StorageService<ShoppingList[]>){
+
     }
 
-    update(shoppingList: ShoppingList[]):void{
-        this.shoppingLists = shoppingList;
-        // TODO - persistir
+    async init(){
+        await this.storageService.init('shoppingLists');
     }
 
-    add(title: string): void{
-        const id = this.shoppingLists[this.shoppingLists.length-1].id++;
+    getAll(): Promise<ShoppingList[]> {
+        return this.storageService.get();
+    }
+
+    async update(shoppingLists: ShoppingList[]):Promise<void>{
+        await this.storageService.save(shoppingLists);
+    }
+
+
+    async add(title: string){
+        const shoppingLists = await this.getAll();
+        const id = shoppingLists[shoppingLists.length-1].id++;
         const shoppingList: ShoppingList = new ShoppingList(id, title, []);
-        this.shoppingLists.push(shoppingList);
-      }
+        shoppingLists.push(shoppingList);
+        this.storageService.save(shoppingLists);
+    }
 
 }

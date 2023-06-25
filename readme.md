@@ -23,7 +23,7 @@ Aplicativo de Lista de Compras
       [ ] - Página da lista de listas
          [x] - Configurar a ativação e desativação do modo de edição
          [-] - criar servico
-            [ ] - Implementar a persistencia das alteraçõe
+            [x] - Implementar a persistencia das alteraçõe
             [x] - Add 
             [x] - update
             [x] - lista

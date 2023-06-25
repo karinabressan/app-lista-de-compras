@@ -17,8 +17,8 @@ export class ShoppingListItensPage implements OnInit {
     this.shoppingListItemService = shoppingListItemService;
   }
 
-  ngOnInit(): void {
-    this.shoppingListItem = this.shoppingListItemService.getShoppingList(3);
+  async ngOnInit(): Promise<void> {
+    this.shoppingListItem = await this.shoppingListItemService.getShoppingList(3);
   }
 
 }

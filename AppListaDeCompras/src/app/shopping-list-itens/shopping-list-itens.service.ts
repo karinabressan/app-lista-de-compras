@@ -6,8 +6,9 @@ import { ShoppingListsService } from "../shopping-lists/shopping-lists.service";
 export class ShoppingListItensService {
     constructor(private shoppingListsService: ShoppingListsService) {}
 
-    getShoppingList(id: number): ShoppingList | undefined{
-        return this.shoppingListsService.getAll().find(s => s.id === id);
+    async getShoppingList(id: number): Promise<ShoppingList | undefined>{
+        const all = await this.shoppingListsService.getAll();
+        return all.find(s => s.id === id);
         
     }
 
