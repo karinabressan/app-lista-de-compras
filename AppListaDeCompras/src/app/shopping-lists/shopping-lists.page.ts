@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShoppingListsService } from './shopping-lists.service';
 import { ShoppingList } from '../model/shopping-list';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-shopping-lists',
@@ -11,12 +12,9 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 export class ShoppingListsPage implements OnInit{
 
   editMode:boolean = false;
-  
-  
-  
   private shoppingListsService: ShoppingListsService;
 
-  constructor(shoppingListsService: ShoppingListsService, private fb: FormBuilder) {
+  constructor(shoppingListsService: ShoppingListsService, private alertController: AlertController, private fb: FormBuilder) {
     this.shoppingListsService = shoppingListsService;
   }
 
@@ -33,7 +31,7 @@ export class ShoppingListsPage implements OnInit{
   }
 
   get shoppingLists(): ShoppingList[]{
-    return this.shoppingListsService.getShoppingLists();
+    return this.shoppingListsService.getAll();
   }
   
   ngOnInit(): void {
@@ -56,11 +54,41 @@ export class ShoppingListsPage implements OnInit{
     });
 
     this.editMode = true;
-}
+  }
   
-  confirm():void{
+  confirmEdit():void{
     this.editMode = false;
-    this.shoppingListsService.updateShoppingLists(this.editForm.value.shoppingLists);
+    this.shoppingListsService.update(this.editForm.value.shoppingLists);
+  }
+
+  delete(index: number){
+    this.shoppingListsFormArray.removeAt(index);
+    this.shoppingListsService.update(this.editForm.value.shoppingLists);
+  }
+
+  async add():Promise<void>{
+    const alert = await this.alertController.create(
+      {
+        header: 'Nova lista',
+        cssClass: 'secondary',
+        buttons: ["OK", "Cancel"],
+        inputs: [
+          {
+            name: 'title',
+            type: 'text',
+            placeholder: 'Nome da nova lista'
+          }
+        ]
+      }
+    );
+
+    await alert.present();
+
+    const data = await alert.onDidDismiss();
+    const nome = data.data.values.title;
+
+    this.shoppingListsService.add(nome);
+    
   }
 
 }

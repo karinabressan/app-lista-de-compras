@@ -34,12 +34,19 @@ export class ShoppingListsService {
         }
     ];
 
-    getShoppingLists(): ShoppingList[] {
+    getAll(): ShoppingList[] {
         return this.shoppingLists;
     }
 
-    updateShoppingLists(shoppingList: ShoppingList[]):void{
+    update(shoppingList: ShoppingList[]):void{
         this.shoppingLists = shoppingList;
         // TODO - persistir
     }
+
+    add(title: string): void{
+        const id = this.shoppingLists[this.shoppingLists.length-1].id++;
+        const shoppingList: ShoppingList = new ShoppingList(id, title, []);
+        this.shoppingLists.push(shoppingList);
+      }
+
 }

@@ -29,7 +29,7 @@
           <div [formGroup]="itemForm">
             <ion-item>
               <ion-input formControlName="title"></ion-input>
-              <ion-button>
+              <ion-button (click)="delete(i)">
                 <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
               </ion-button>
             </ion-item>
@@ -40,13 +40,13 @@
 </ng-container>
 
   <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button>
+    <ion-fab-button (click)="add()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
     <ion-fab-button (click)="edit()" *ngIf="!editMode">
       <ion-icon name="create"></ion-icon>
     </ion-fab-button>
-    <ion-fab-button (click)="confirm()" *ngIf="editMode">
+    <ion-fab-button (click)="confirmEdit()" *ngIf="editMode">
       <ion-icon name="checkmark-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

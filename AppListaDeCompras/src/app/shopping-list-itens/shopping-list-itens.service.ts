@@ -7,7 +7,7 @@ export class ShoppingListItensService {
     constructor(private shoppingListsService: ShoppingListsService) {}
 
     getShoppingList(id: number): ShoppingList | undefined{
-        return this.shoppingListsService.getShoppingLists().find(s => s.id === id);
+        return this.shoppingListsService.getAll().find(s => s.id === id);
         
     }
 
