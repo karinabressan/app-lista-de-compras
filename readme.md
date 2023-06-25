@@ -28,7 +28,7 @@ Aplicativo de Lista de Compras
             [x] - update
             [x] - lista
          [x] - Implementar comportamento para a ação de excluir
-         [ ] - Implementar ação de criar
+         [x] - Implementar ação de criar
          [ ] - Configurar a navegação para a tela de itens da lista
 
     [ ] - Página de uma lista de compras
