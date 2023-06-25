@@ -7,6 +7,7 @@ import { ShoppingListItensPage } from './shopping-list-itens.page';
 import { ShoppingListItensRoutingModule } from './shopping-list-itens-routing.module';
 import { ShoppingListItensService } from './shopping-list-itens.service';
 import { ShoppingListsService } from '../shopping-lists/shopping-lists.service';
+import { StorageService } from '../services/storage.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { ShoppingListsService } from '../shopping-lists/shopping-lists.service';
     ShoppingListItensRoutingModule
   ],
   declarations: [ShoppingListItensPage],
-  providers: [ShoppingListItensService, ShoppingListsService]
+  providers: [StorageService,ShoppingListItensService, ShoppingListsService]
 })
 export class ShoppingListItensPageModule {}

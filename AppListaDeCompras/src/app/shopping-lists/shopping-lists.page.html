@@ -13,7 +13,7 @@
     <ion-list lines="inset" *ngFor="let item of allShoppingLists; index as i">
       <ion-item>
         <ion-label>{{item.title}}</ion-label>
-        <ion-button>
+        <ion-button (click)="navigateToListItemsPage(item.id)">
           <ion-icon slot="icon-only" name="chevron-forward-outline"></ion-icon>
         </ion-button>
       </ion-item>

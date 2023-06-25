@@ -39,6 +39,8 @@ export class ShoppingListsService {
 
     }
 
+    findById = (listId: number) => (s:ShoppingList):boolean => {return s.id === listId};
+
     async init(){
         await this.storageService.init('shoppingLists');
     }
@@ -54,7 +56,10 @@ export class ShoppingListsService {
 
     async add(title: string){
         const shoppingLists = await this.getAll();
-        const id = shoppingLists[shoppingLists.length-1].id++;
+        let id = 1;
+        if(shoppingLists){
+            id = shoppingLists.length ? shoppingLists[shoppingLists.length-1].id++ : 1;
+        }
         const shoppingList: ShoppingList = new ShoppingList(id, title, []);
         shoppingLists.push(shoppingList);
         this.storageService.save(shoppingLists);

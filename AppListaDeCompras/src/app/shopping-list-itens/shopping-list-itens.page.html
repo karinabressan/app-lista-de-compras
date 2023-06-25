@@ -8,29 +8,36 @@
 
 <ion-content [fullscreen]="true">
   <!-- listagem de visualizacao-->
-  <ion-list lines="inset" *ngFor="let item of shoppingListItem?.itens; index as i">
-    <ion-item>
-      <ion-checkbox labelPlacement="end" justify="start">{{item.description}}</ion-checkbox>
-    </ion-item>
-  </ion-list>
+  <ng-container *ngIf="!editMode">
+    <ion-list lines="inset" *ngFor="let item of shoppingListItem?.itens; index as i">
+      <ion-item>
+        <ion-checkbox labelPlacement="end" justify="start">{{item.description}}</ion-checkbox>
+      </ion-item>
+    </ion-list>
+  </ng-container>
 <hr/>
 <hr/>
   <!-- listagem de ediçao-->
-  <ion-list lines="inset" *ngFor="let item of shoppingListItem?.itens; index as i">
-    <ion-item>
-      <ion-input value="{{item.description}}"></ion-input>
-      <ion-button>
-        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ion-list>
+  <ng-container *ngIf="editMode">
+    <ion-list lines="inset" *ngFor="let item of shoppingListItem?.itens; index as i">
+      <ion-item>
+        <ion-input value="{{item.description}}"></ion-input>
+        <ion-button (click)="delete(i)">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </ng-container>
 
   <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button>
+    <ion-fab-button (click)="add()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-    <ion-fab-button>
+    <ion-fab-button (click)="edit()" *ngIf="!editMode">
       <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="confirmEdit()" *ngIf="editMode">
+      <ion-icon name="checkmark-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 

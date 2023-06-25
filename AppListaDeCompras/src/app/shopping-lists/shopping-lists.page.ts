@@ -4,6 +4,7 @@ import { ShoppingList } from '../model/shopping-list';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { Observable, from } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-lists',
@@ -17,7 +18,7 @@ export class ShoppingListsPage implements OnInit{
   private shoppingListsService: ShoppingListsService;
   private newItemModal:HTMLIonAlertElement;
 
-  constructor(shoppingListsService: ShoppingListsService, private alertController: AlertController, private fb: FormBuilder) {
+  constructor(shoppingListsService: ShoppingListsService, private alertController: AlertController, private fb: FormBuilder, private router: Router) {
     this.shoppingListsService = shoppingListsService;
   }
 
@@ -51,6 +52,10 @@ export class ShoppingListsPage implements OnInit{
         ]
       }
     );  
+  }
+
+  navigateToListItemsPage(listId:number):void{
+    this.router.navigate(['/shopping-lists', listId], );
   }
 
   async edit():Promise<void>{
