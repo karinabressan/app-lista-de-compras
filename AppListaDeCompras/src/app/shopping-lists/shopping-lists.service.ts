@@ -54,8 +54,11 @@ export class ShoppingListsService {
     }
 
 
-    async add(title: string){
-        const shoppingLists = await this.getAll();
+async add(title: string){
+        let shoppingLists = await this.getAll();
+        if(!shoppingLists){
+            shoppingLists = [];
+        }
         let id = 1;
         if(shoppingLists){
             id = shoppingLists.length ? shoppingLists[shoppingLists.length-1].id : 0;
