@@ -69,3 +69,30 @@ Telas:
     [x] - Botões de exclusão
  [x] Botão flutuante de criação
  [x] Botão flutuante de edição
+
+ ------------------------
+
+ informações para executar o projetp:
+
+- Utilizar node versão 16.14.0 ou acima da v18:
+
+- Caso voce ja tenha node instalado
+Executar: node -v
+Caso a versão seja diferente de 16.14.0 ou abaixo da v18, instalar a versão 16.14.0 ou v18.15.0
+
+- Utilizar o CLI com Ionic v7:
+
+- Caso voce ja tenha ionic instalado:
+Executar: ionic -v
+Caso a versão seja menor que 7, desinstalar a versão instalada e executar:
+npm install -g @ionic/cli
+
+- Caso voce nao tenha ionic instalado:
+Executar: npm install -g @ionic/cli
+
+- Baixar as dependencias:
+
+- No root do repositorio, execute:
+cd ./AppListaDeCompras
+npm install
+ionic serve
